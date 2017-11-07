@@ -14,7 +14,8 @@ main.o : $(SRC)/main.c
 	$(CC) $(CFLAGS) -c $(SRC)/main.c
 
 clean :
-	-rm -f *.o # -f prevents the displaying of "file not found" error
+	-rm -f *.o
+# -f prevents the displaying of "file not found" error
 
 cleanall : clean
 	-rm -f $(PROG)
