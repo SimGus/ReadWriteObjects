@@ -5,14 +5,24 @@ SRC = .
 
 .PHONY : all clean cleanall tests
 
+#================== Make program =====================
 all : $(PROG)
 
-$(PROG) : main.o
+$(PROG) : main.o $(SRC)/defines.h alloc.o RWObject.o
 	$(CC) $(CFLAGS) -o $(PROG) main.o
 
 main.o : $(SRC)/main.c
 	$(CC) $(CFLAGS) -c $(SRC)/main.c
 
+#============== Compile "side" functions ===============
+alloc.o : $(SRC)/alloc.c $(SRC)/defines.h
+	$(CC) $(CFLAGS) -c $(SRC)/alloc.c
+
+#============= Compile project functions ===============
+RWObject.o : $(SRC)/RWObject.c $(SRC)/defines.h
+	$(CC) $(CFLAGS) -c $(SRC)/RWObject.c
+
+#============= Clean and tests =========================
 clean :
 	-rm -f *.o
 # -f prevents the displaying of "file not found" error
