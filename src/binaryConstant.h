@@ -8,11 +8,11 @@
 /*
  * Transforms a binary string (e.g. "101"=5) to its number representation (in $int)
  */
-int binaryStringToInt(const char* binaryString);
+int binaryStringToInt(char const* binaryString);
 
 /*
  * Checks that the string $string contains only '0' and '1'
  */
-bool isStringBinary(const char* const binaryString);
+bool isStringBinary(char const* const binaryString);
 
 #endif //_BINARY_CONSTANT_H_

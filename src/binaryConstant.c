@@ -3,7 +3,7 @@
 
 #include "binaryConstant.h"
 
-int binaryStringToInt(const char* binaryString)
+int binaryStringToInt(char const* binaryString)
 {
    if (binaryString == NULL || !isStringBinary(binaryString))
       return -1;
@@ -20,7 +20,7 @@ int binaryStringToInt(const char* binaryString)
    return result;
 }
 
-bool isStringBinary(const char* const binaryString)
+bool isStringBinary(char const* const binaryString)
 {
    if (binaryString == NULL)
       return false;
