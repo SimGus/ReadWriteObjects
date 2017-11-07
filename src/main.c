@@ -3,6 +3,7 @@
 #include <stdbool.h>
 
 #include "defines.h"
+#include "RWObject.h"
 
 int main(int argc, char *argv[])
 {
