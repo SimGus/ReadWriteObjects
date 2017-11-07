@@ -8,8 +8,8 @@ SRC = .
 #================== Make program =====================
 all : $(PROG)
 
-$(PROG) : main.o $(SRC)/defines.h alloc.o RWObject.o
-	$(CC) $(CFLAGS) -o $(PROG) main.o
+$(PROG) : main.o $(SRC)/defines.h alloc.o RWObject.o binaryConstant.o
+	$(CC) $(CFLAGS) -o $(PROG) main.o alloc.o binaryConstant.o RWObject.o
 
 main.o : $(SRC)/main.c
 	$(CC) $(CFLAGS) -c $(SRC)/main.c
@@ -18,8 +18,11 @@ main.o : $(SRC)/main.c
 alloc.o : $(SRC)/alloc.c $(SRC)/defines.h
 	$(CC) $(CFLAGS) -c $(SRC)/alloc.c
 
+binaryConstant.o : $(SRC)/binaryConstant.c
+	$(CC) $(CFLAGS) -c $(SRC)/binaryConstant.c
+
 #============= Compile project functions ===============
-RWObject.o : $(SRC)/RWObject.c $(SRC)/defines.h
+RWObject.o : $(SRC)/RWObject.c $(SRC)/defines.h binaryConstant.o
 	$(CC) $(CFLAGS) -c $(SRC)/RWObject.c
 
 #============= Clean and tests =========================
